@@ -11,7 +11,8 @@
     <script>
         function runButtonPressed() {
             var numbers = [];
-            createRandomNumbers(numbers, 8)
+            createSequentialNumbers(numbers, 8)
+            show(numbers);
             //prac1-7 1からNまでの数を順にN個挿入する関数を作る
             //関数名：createSequentialNumbers(array, n)
             //できたら，関数定義をaandd.jsに移す
@@ -19,7 +20,7 @@
             //prac1-8 N個の乱数を挿入する関数を作る
             //関数名：createRandomNumbers(array, n)
             //できたら，関数定義をaandd.jsに移す
-
+            createRandomNumbers(numbers, 5)
             show(numbers);
         }
     </script>
