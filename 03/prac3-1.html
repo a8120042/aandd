@@ -34,17 +34,28 @@
             // show(ave);
 
             //prac3-3 10個の乱数の最大値を求める
+            // var numbers = [];
+            // createRandomNumbers(numbers, 10)
+            // show(numbers);
+            // var max = 0;
+            // for (var i = 0; i < numbers.length; i++) {
+            //     if (max < numbers[i]) {
+            //         max = numbers[i]
+            //     }
+            // }
+            // show(max);
+
+            //prac3-4 10個の乱数の最小値を求める
             var numbers = [];
             createRandomNumbers(numbers, 10)
             show(numbers);
-            var max = 0;
+            var min = 20;
             for (var i = 0; i < numbers.length; i++) {
-                if (max < numbers[i]) {
-                    max = numbers[i]
+                if (min > numbers[i]) {
+                    min = numbers[i]
                 }
             }
-            show(max);
-            //prac3-4 10個の乱数の最小値を求める
+            show(min);
         }
     </script>
 
