@@ -9,23 +9,53 @@
     <script type="text/javascript" src="../jquery.min.js"></script>
 
     <script>
-        //practice4-3 リニアサーチ//
         function runButtonPressed() {
+            //  //practice4-3 リニアサーチ//
+            // var numbers = makeRandomArray();
+            // show(numbers);
+            // var n = Number(document.getElementById("n").value);
+            // var index = "";
+            // for (var i = 0; i < numbers.length; i++) {
+            //     if (numbers[i] == n) {
+            //         index = i;
+            //     }
+            // }
+            // if (index == "") {
+            //     document.getElementById("output").innerHTML = "みつかりませんでした";
+            // } else {
+            //     document.getElementById("output").innerHTML = index + "番地";
+            // }
+
+            //prac4-4　バイナリリサーチ//
             var numbers = makeRandomArray();
             show(numbers);
             var n = Number(document.getElementById("n").value);
             var index = "";
-            for (var i = 0; i < numbers.length; i++) {
-                if (numbers[i] == n) {
-                    index = i;
+
+            var apper = numbers.length - 1;
+            var low = 0;
+            while (apper != low + 1) {
+                var midle = Math.floor((apper + low) / 2);
+                console.log(`apper=${apper},low=${low},midle=${midle}`)
+                if (numbers[midle] == n) {//同じとき
+                    index = midle;
+                    break;
+                } else if (numbers[midle] < n) {//大きいとき
+                    low = midle;
+                } else {//小さい時  
+                    apper = midle;
                 }
             }
             if (index == "") {
-                document.getElementById("output").innerHTML = "みつかりませんでした";
-            } else {
-                document.getElementById("output").innerHTML = index + "番地";
+                index = "見つかりませんでした";
             }
+            document.getElementById("output").innerHTML = index;
         }
+
+
+
+
+
 
         function makeRandomArray() {
             var array = [];
