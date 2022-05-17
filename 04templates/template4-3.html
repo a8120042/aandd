@@ -45,8 +45,11 @@
                 } else {//小さい時  
                     apper = midle;
                 }
-            }
-            if (index == "") {
+            } if (n == numbers[apper]) {
+                index = apper;
+            } else if (n == numbers[low]) {
+                index = low;
+            } else {
                 index = "見つかりませんでした";
             }
             document.getElementById("output").innerHTML = index;
