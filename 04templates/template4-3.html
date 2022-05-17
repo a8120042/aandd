@@ -9,53 +9,69 @@
     <script type="text/javascript" src="../jquery.min.js"></script>
 
     <script>
+        //practice4-3 リニアサーチ//
         function runButtonPressed() {
-            var numbers = [];
-            createOrderedRandomNumbers(numbers, 20);
+            var numbers = makeRandomArray();
             show(numbers);
-        }
-
-        //この関数を，aaandd.jsに加えてください．
-        function createOrderedRandomNumbers(numbers, n) {
-            var count = 0;
-            for (var i = 1; ; i++) {
-                if (Math.floor(Math.random() * 3) == 0) {
-                    numbers.push(i);
-                    count++;
-                    if (count >= n) {
-                        break;
-                    }
+            var n = Number(document.getElementById("n").value);
+            var index = "";
+            for (var i = 0; i < numbers.length; i++) {
+                if (numbers[i] == n) {
+                    index = i;
                 }
             }
-        }
-
-        //配列以外の変数を表示するために，aaandd.jsの中身を新しいshowに置き換えてください．
-        function show(obj) {
-            if (Array.isArray(obj)) {
-                var html = '';
-                html = html + '<table border="1">';
-                html = html + '<tr>';
-                for (var i = 0; i < obj.length; i++) {
-                    html = html + '<td>' + obj[i] + '</td>';
-                }
-                html = html + '</tr>';
-                html = html + '</table>';
-                //html = html + '<br>';
-                document.getElementById('res').insertAdjacentHTML('beforeend', html);
+            if (index == "") {
+                document.getElementById("output").innerHTML = "みつかりませんでした";
             } else {
-                var string = JSON.stringify(obj);
-                string = string + '<br>';
-                document.getElementById('res').insertAdjacentHTML('beforeend', string);
+                document.getElementById("output").innerHTML = index + "番地";
             }
         }
+
+        function makeRandomArray() {
+            var array = [];
+            var r = Math.floor(Math.random() * 5) + 1
+            array.push(r);
+            for (var i = 0; i < 9; i++) {
+                r = r + Math.floor(Math.random() * 5) + 1;
+
+                array.push(r);
+            }
+            return array;
+            // createOrderedRandomNumbers(numbers, 10);
+        }
+
+
+
+        // //配列以外の変数を表示するために，aaandd.jsの中身を新しいshowに置き換えてください．
+        // function show(obj) {
+        //     if (Array.isArray(obj)) {
+        //         var html = '';
+        //         html = html + '<table border="1">';
+        //         html = html + '<tr>';
+        //         for (var i = 0; i < obj.length; i++) {
+        //             html = html + '<td>' + obj[i] + '</td>';
+        //         }
+        //         html = html + '</tr>';
+        //         html = html + '</table>';
+        //         //html = html + '<br>';
+        //         document.getElementById('res').insertAdjacentHTML('beforeend', html);
+        //     } else {
+        //         var string = JSON.stringify(obj);
+        //         string = string + '<br>';
+        //         document.getElementById('res').insertAdjacentHTML('beforeend', string);
+        //     }
+        // }
     </script>
 
 </head>
 
 <body>
     <h1>ex3-1</h1>
+    探す数字：<input type=text id="n">
     <button onclick="runButtonPressed()">run!</button>
     <p id="res"></p>
+    <hr>
+    <p id="output"></p>
 </body>
 
 </html>
