@@ -11,18 +11,33 @@
     <script>
         function runButtonPressed() {
             var stack = [];
+            var text = document.getElementById('input').value;
+            var chars = text.split('');
+            var reverse = []
+            var arrayLength = chars.length
+            for(var i = 0; i < arrayLength; i++){
+                var x = chars.pop();
+                reverse.push(x);
+            }
+            var text2 = reverse.join('');
+            show(text)
+                show(text2)
+            if(text == text2){
+                show("回文です")
+            }else{
+                show("回文ではありません")
+            }
+            // stack.push('りんご');
+            // stack.push('みかん');
+            // stack.push('ばなな');
 
-            stack.push('りんご');
-            stack.push('みかん');
-            stack.push('ばなな');
+            // show(stack);
 
-            show(stack);
+            // show(stack.pop());
+            // show(stack.pop());
+            // show(stack.pop());
 
-            show(stack.pop());
-            show(stack.pop());
-            show(stack.pop());
-
-            show(stack);
+            // show(stack);
         }
     </script>
 
@@ -31,6 +46,7 @@
 <body>
     <h1>スタック</h1>
     <button onclick="runButtonPressed()">run!</button>
+    <input type="text" id = "input">
     <p id="res"></p>
 </body>
 
